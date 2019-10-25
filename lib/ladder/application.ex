@@ -9,7 +9,7 @@ defmodule Ladder.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      Ladder.Repo,
+
       # Start the endpoint when the application starts
       LadderWeb.Endpoint
       # Starts a worker by calling: Ladder.Worker.start_link(arg)
