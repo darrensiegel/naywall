@@ -4,7 +4,7 @@ MIX_ENV=prod mix compile
 
 # Compile assets
 npm run deploy --prefix ./assets
-mix phx.digest
+DATABASE_URL=none mix phx.digest
 
 # Finally run the server
-PORT=4001 MIX_ENV=prod DATABASE_URL=none mix phx.server
+PORT=80 MIX_ENV=prod DATABASE_URL=none mix phx.server
