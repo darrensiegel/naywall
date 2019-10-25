@@ -1,0 +1,9 @@
+<% {_, articles} = @category %>
+<%= for a <- articles do %>
+    <p>
+    <%= if Map.get(a.article, "section") != nil do %>
+    <span class="label <%= Map.get(a.article, "section") %>">
+    <% end %>
+    <%= Map.get(a.article, "section") %></span> <%= link a.title, to: Routes.page_path(@conn, :show, %{ "link" => Map.get(a.article, "link") }), class: "link" %>
+    </p>
+<% end %>

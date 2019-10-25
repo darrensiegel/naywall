@@ -1,0 +1,11 @@
+
+<div style="display: flex; justify-content: space-between;">
+    <h1 style="float: right;">NayWall</h1>
+    <p><small>Saying &quot;Nay&quot; to Paywalls since 2019</small></p>
+
+</div>
+
+
+<h3>
+<%= link "Pittsburgh Post-Gazette", to: Routes.page_path(@conn, :index) %>
+</h3>

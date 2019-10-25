@@ -1,0 +1,9 @@
+
+<article>
+
+<h1><%= @article.title %></h1>
+<p><small><%= @article.author %></small></p>
+
+<%= raw(@article.body) %>
+
+</article>

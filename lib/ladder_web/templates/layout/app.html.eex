@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ladder</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <style>
+
+      
+      body {
+        background-color: #222;
+        color: #e6e6e6;
+      }
+      img {
+        opacity: .75;
+        transition: opacity .5s ease-in-out;
+      }
+      a {
+        color: #e6e6e6;
+        text-decoration: none;
+      }
+      a:visited {
+        color: #cccccc;
+      }      
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      img:hover {
+        opacity: 1;
+      }
+      
+
+      body {
+          font-family: sans-serif;
+          font-size: 1.0rem;
+          display: flex;
+          flex-direction: column;
+          max-width: 50rem;
+          margin: 0 auto;
+          padding: 0 0.9375rem;   
+          margin-bottom: 100px;
+      }
+      .label {
+        color: white;
+        border-radius: 5px;
+        padding: 3px;
+      }
+      .local {background-color: purple;} /* Green */
+      .ae {background-color: purple;} /* Green */
+      .sports {background-color: #4CAF50;} /* Green */
+      .business {background-color: #2196F3;} /* Blue */
+      .life {background-color: #ff9800;} /* Orange */
+      .news {background-color: #f44336;} /* Red */
+      .opinion {background-color: #e7e7e7; color: black;} /* Gray */
+
+      small {
+          font-style: italic;
+      }
+      article {
+          display: flex;
+          flex-direction: column;
+          margin-top: 75px;
+      }
+      img {
+          max-width: 100%;
+          display: block;
+          align-self: center;
+      }
+      img:hover {
+        opacity: 1;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <%= render @view_module, @view_template, assigns %>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+
+<article>
+
+<div style="display: flex;">
+  <div style="padding: 10px;">
+    <h3>Featured</h3>
+    <%= render("links.html", conn: @conn, category: @featured) %>
+  </div>
+
+  <div style="padding: 10px;">
+    <h3>Breaking</h3>
+    <%= render("links.html", conn: @conn, category: @breaking) %>
+  </div>
+</div>
+
+<div>
+  <h3>Trending</h3>
+  <%= render("links.html", conn: @conn, category: @trending) %>
+</div>
+
+</article>
