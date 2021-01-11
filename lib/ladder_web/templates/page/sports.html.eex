@@ -1,14 +1,16 @@
 
 <article>
 
+<h2>Sports</h2>
+
 <div>
   <h3>Featured</h3>
-  <%= render("links.html", conn: @conn, category: @featured) %>
+  <%= render("list.html", conn: @conn, category: @featured) %>
 </div>
 
 <div>
   <h3>Trending</h3>
-  <%= render("links.html", conn: @conn, category: @trending) %>
+  <%= render("list.html", conn: @conn, category: @trending) %>
 </div>
 
 </article>

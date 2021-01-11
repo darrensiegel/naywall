@@ -29,18 +29,24 @@ defmodule LadderWeb.PageController do
   end
 
   def sports(conn, _params) do
+    headers = ["Accept": "Application/json; Charset=utf-8"]
+    options = [ssl: [{:versions, [:'tlsv1.2']}], recv_timeout: 500]
     articles =
-      case HTTPoison.get("https://www.post-gazette.com/sports") do
-        {:ok, %HTTPoison.Response{status_code: 200, body: body}} -> PostGazette.sports_articles(body)
-        _ -> []
+      case HTTPoison.get("https://api2.post-gazette.com/page/2/sports/", headers, options) do
+        {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+          IO.inspect(body)
+          PostGazette.sports_articles(body)
+        e ->
+          IO.inspect(e)
+        []
       end
 
-    categories =
-      PostGazette.categories(articles)
-      |> Enum.map(fn c -> {c, PostGazette.per_category(c, articles)} end)
+    featured = Map.get(articles, "featuredpack") |> Map.get("articles")
+    trending = Map.get(articles, "recent") |> Map.get("articles")
 
-    featured = Enum.filter(categories, fn {c, _} -> c == "featuredpack" end) |> hd
-    trending = Enum.filter(categories, fn {c, _} -> c == "trending" end) |> hd
+    IO.inspect featured
+    IO.inspect trending
+
 
     render(conn, "sports.html",
       featured: featured,

@@ -55,8 +55,7 @@ defmodule Ladder.PostGazette do
   end
 
   def sports_articles(content) do
-    content
-    |> line_to_map("PGPAGEDATA = ")
+    Poison.decode!(content)
   end
 
 end
