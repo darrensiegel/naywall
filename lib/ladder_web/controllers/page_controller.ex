@@ -28,6 +28,26 @@ defmodule LadderWeb.PageController do
     )
   end
 
+  def sports(conn, _params) do
+    articles =
+      case HTTPoison.get("https://www.post-gazette.com/sports") do
+        {:ok, %HTTPoison.Response{status_code: 200, body: body}} -> PostGazette.sports_articles(body)
+        _ -> []
+      end
+
+    categories =
+      PostGazette.categories(articles)
+      |> Enum.map(fn c -> {c, PostGazette.per_category(c, articles)} end)
+
+    featured = Enum.filter(categories, fn {c, _} -> c == "featuredpack" end) |> hd
+    trending = Enum.filter(categories, fn {c, _} -> c == "trending" end) |> hd
+
+    render(conn, "sports.html",
+      featured: featured,
+      trending: trending
+    )
+  end
+
   def root(conn, _params) do
     render(conn, "root.html")
   end

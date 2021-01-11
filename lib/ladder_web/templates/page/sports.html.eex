@@ -1,0 +1,14 @@
+
+<article>
+
+<div>
+  <h3>Featured</h3>
+  <%= render("links.html", conn: @conn, category: @featured) %>
+</div>
+
+<div>
+  <h3>Trending</h3>
+  <%= render("links.html", conn: @conn, category: @trending) %>
+</div>
+
+</article>

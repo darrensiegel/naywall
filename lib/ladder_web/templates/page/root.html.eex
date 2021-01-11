@@ -7,5 +7,7 @@
 
 
 <h3>
-<%= link "Pittsburgh Post-Gazette", to: Routes.page_path(@conn, :index) %>
+<%= link "Pittsburgh Post-Gazette - Front Page", to: Routes.page_path(@conn, :index) %>
+
+<%= link "Pittsburgh Post-Gazette - Sports Page", to: Routes.page_path(@conn, :sports) %>
 </h3>
