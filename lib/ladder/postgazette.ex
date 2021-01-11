@@ -54,5 +54,9 @@ defmodule Ladder.PostGazette do
     |> line_to_map("PGPAGEDATA = ")
   end
 
-end
+  def sports_articles(content) do
+    content
+    |> line_to_map("PGPAGEDATA = ")
+  end
 
+end
