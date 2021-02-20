@@ -5,9 +5,4 @@
 
 </div>
 
-
-<h3>Pittsburgh Post Gazette</h3>
-
-<h4><%= link "Front Page", to: Routes.page_path(@conn, :index) %></h4>
-
-<h4><%= link "Sports Page", to: Routes.page_path(@conn, :sports) %></h4>
+<h4><%= link "Pittsburgh Post Gazette", to: Routes.page_path(@conn, :news) %></h4>

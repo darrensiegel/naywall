@@ -18,7 +18,16 @@ defmodule LadderWeb.Router do
 
     get "/", PageController, :root
     get "/pg", PageController, :index
+
+    get "/pg/home", PageController, :home
+    get "/pg/news", PageController, :news
+    get "/pg/local", PageController, :local
     get "/pg/sports", PageController, :sports
+    get "/pg/opinion", PageController, :opinion
+    get "/pg/ae", PageController, :ae
+    get "/pg/life", PageController, :life
+    get "/pg/business", PageController, :business
+
     get "/pg/article", PageController, :show
   end
 

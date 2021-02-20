@@ -1,4 +1,6 @@
 
+<%= render("header.html", conn: @conn) %>
+
 <article>
 
 <div style="display: flex;">

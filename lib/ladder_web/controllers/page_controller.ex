@@ -28,31 +28,72 @@ defmodule LadderWeb.PageController do
     )
   end
 
+
+  defp section(body, name) do
+    case Map.get(body, name) do
+      nil -> []
+      section -> case Map.get(section, "articles") do
+        nil -> []
+        articles -> articles
+      end
+    end
+  end
+
+  def home(conn, _params) do
+    render_section(conn, "Home", "home")
+  end
+
+  def news(conn, _params) do
+    render_section(conn, "News", "news")
+  end
+
+  def local(conn, _params) do
+    render_section(conn, "Local", "local")
+  end
+
   def sports(conn, _params) do
+    render_section(conn, "Life", "life")
+  end
+
+  def opinion(conn, _params) do
+    render_section(conn, "Opinion", "opinion")
+  end
+
+  def ae(conn, _params) do
+    render_section(conn, "Arts and Entertainment", "ae")
+  end
+
+  def life(conn, _params) do
+    render_section(conn, "Life", "life")
+  end
+
+  def business(conn, _params) do
+    render_section(conn, "Business", "business")
+  end
+
+
+  defp render_section(conn, title, url) do
+
     headers = ["Accept": "Application/json; Charset=utf-8"]
     options = [ssl: [{:versions, [:'tlsv1.2']}], recv_timeout: 500]
     articles =
-      case HTTPoison.get("https://api2.post-gazette.com/page/2/sports/", headers, options) do
+      case HTTPoison.get("https://api2.post-gazette.com/page/2/#{url}/", headers, options) do
         {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-          IO.inspect(body)
-          PostGazette.sports_articles(body)
+
+          Poison.decode!(body)
         e ->
           IO.inspect(e)
         []
       end
 
-    featured = Map.get(articles, "featuredpack") |> Map.get("articles")
-    trending = Map.get(articles, "recent") |> Map.get("articles")
-
-    IO.inspect featured
-    IO.inspect trending
-
-
-    render(conn, "sports.html",
-      featured: featured,
-      trending: trending
+    render(conn, "section.html",
+      title: title,
+      featured: section(articles, "featuredpack"),
+      trending: section(articles, "trending"),
+      recent: section(articles, "recent")
     )
   end
+
 
   def root(conn, _params) do
     render(conn, "root.html")

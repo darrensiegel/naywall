@@ -1,7 +1,6 @@
 
 <%= for a <- @category do %>
     <p>
-
      <%= link Map.get(a, "title"), to: Routes.page_path(@conn, :show, %{ "link" => Map.get(a, "link") }), class: "link" %>
     </p>
 <% end %>

@@ -1,0 +1,10 @@
+<div style="display: inline; margin-top: 30px;">
+  <%= link "Home", to: Routes.page_path(@conn, :index) %> |
+  <%= link "News", to: Routes.page_path(@conn, :news) %> |
+  <%= link "Local", to: Routes.page_path(@conn, :local) %> |
+  <%= link "Sports", to: Routes.page_path(@conn, :sports) %> |
+  <%= link "Opinion", to: Routes.page_path(@conn, :opinion) %> |
+  <%= link "Arts and Entertainment", to: Routes.page_path(@conn, :ae) %> |
+  <%= link "Life", to: Routes.page_path(@conn, :life) %> |
+  <%= link "Business", to: Routes.page_path(@conn, :business) %>
+</div>

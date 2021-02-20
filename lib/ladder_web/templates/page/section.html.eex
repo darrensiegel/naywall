@@ -1,0 +1,23 @@
+
+<%= render("header.html", conn: @conn) %>
+
+<article style="margin-top: 10px;">
+
+    <h2><%= @title %></h2>
+
+    <div>
+      <h3>Featured</h3>
+      <%= render("list.html", conn: @conn, category: @featured) %>
+    </div>
+
+    <div>
+      <h3>Trending</h3>
+      <%= render("list.html", conn: @conn, category: @trending) %>
+    </div>
+
+    <div>
+      <h3>Recent</h3>
+      <%= render("list.html", conn: @conn, category: @recent) %>
+    </div>
+
+</article>
