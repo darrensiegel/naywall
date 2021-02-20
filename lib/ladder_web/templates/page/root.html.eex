@@ -5,4 +5,4 @@
 
 </div>
 
-<h4><%= link "Pittsburgh Post Gazette", to: Routes.page_path(@conn, :news) %></h4>
+<h4><%= link "Pittsburgh Post Gazette", to: Routes.page_path(@conn, :index) %></h4>

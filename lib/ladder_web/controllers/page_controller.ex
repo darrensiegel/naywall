@@ -53,7 +53,7 @@ defmodule LadderWeb.PageController do
   end
 
   def sports(conn, _params) do
-    render_section(conn, "Life", "life")
+    render_section(conn, "Sports", "sports")
   end
 
   def opinion(conn, _params) do
