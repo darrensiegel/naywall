@@ -32,6 +32,7 @@ defmodule LadderWeb.PageController do
   defp section(body, name) do
     case Map.get(body, name) do
       nil -> []
+      [] -> []
       section -> case Map.get(section, "articles") do
         nil -> []
         articles -> articles
