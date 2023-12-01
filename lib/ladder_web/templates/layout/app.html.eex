@@ -5,55 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>NayWall</title>
+    <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.4/dist/terminal.min.css" />
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <style>
 
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #222;
-          color: #e6e6e6;
-        }
-        a {
-        color: #e6e6e6;
-        text-decoration: none;
-      }
-      a:visited {
-        color: #cccccc;
-      }
-      }
-
       @media (prefers-color-scheme: light) {
-          body {
-          background-color: #F0F0F0;
-          color: #101010;
-        }
         a {
-        color: #101010;
-        text-decoration: none;
-      }
-      a:visited {
-        color: #202020;
-      }
+        color: #000000;
+        }
       }
 
-      img {
-        opacity: .75;
-        transition: opacity .5s ease-in-out;
+      @media (prefers-color-scheme: dark) {
+        :root {
+            --global-font-size: 15px;
+            --global-line-height: 1.4em;
+            --global-space: 10px;
+            --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+            serif;
+            --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+            serif;
+            --background-color: #222225;
+            --page-width: 60em;
+            --font-color: #e8e9ed;
+            --invert-font-color: #222225;
+            --secondary-color: #a3abba;
+            --tertiary-color: #a3abba;
+            --primary-color: #62c4ff;
+            --error-color: #ff3c74;
+            --progress-bar-background: #3f3f44;
+            --progress-bar-fill: #62c4ff;
+            --code-bg-color: #3f3f44;
+            --input-style: solid;
+            --display-h1-decoration: none;
+        }
       }
-
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      img:hover {
-        opacity: 1;
-      }
-
 
       body {
-          font-family: sans-serif;
-          font-size: 1.0rem;
+
           display: flex;
           flex-direction: column;
           max-width: 50rem;
@@ -94,7 +84,7 @@
     </style>
   </head>
   <body>
-    <%= render @view_module, @view_template, assigns %>
+    <%= @inner_content %>
   </body>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154498223-1"></script>

@@ -1,3 +1,5 @@
+<h1>(Not Really) The Post-Gazette</h1>
+
 <div style="display: inline; margin-top: 30px;">
   <%= link "Home", to: Routes.page_path(@conn, :index) %> |
   <%= link "News", to: Routes.page_path(@conn, :news) %> |

@@ -16,7 +16,7 @@ defmodule LadderWeb.Router do
   scope "/", LadderWeb do
     pipe_through :browser
 
-    get "/", PageController, :root
+    get "/", PageController, :index
     get "/pg", PageController, :index
 
     get "/pg/home", PageController, :home
